@@ -1,0 +1,47 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat( 4, minmax(100px, 1fr));
+    /*grid-gap: 10px; */
+    padding: 50px;
+    height: auto; /* Changed height to auto */
+}
+.grid-item {
+    background-color: #ccffd9;
+    text-align: center;
+    cursor: pointer; /* Add cursor pointer for hover effect */
+    padding: 20px;
+    border-color: black;
+    border-style: solid;
+}
+
+.game_title
+{
+    text-align: center;
+    text-decoration: solid;
+    color: green ;
+}
+
+.movekeys
+{
+    display: inline;
+}
+
+.but
+{
+    padding: 20px;
+    margin: 1pc;
+    color: blueviolet;
+}
+
+#contact
+{
+    color: red;
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #d8e8dc;
+}

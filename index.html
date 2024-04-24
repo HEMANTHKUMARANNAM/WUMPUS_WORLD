@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>WUMPUS GAME</title>
+</head>
+<body>
+    <div id = "contact">website under development. Who want to contribute or feedback  contact 99220041106@klu.ac.in</div>
+    <h1 class="game_title" >WUMPUS GAME</h1>
+    <div class="grid-container">
+        <div class="grid-item">Agent</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+    </div>
+
+    <div class="movekeys">
+        <button class="but" id="move-up">Up</button>
+        <button class="but" id="move-down">Down</button>
+        <button class="but" id="move-left">Left</button>
+        <button class="but" id="move-right">Right</button>
+    </div>
+
+    <script>
+        const gridItems = document.querySelectorAll('.grid-item');
+
+        gridItems.forEach(item => {
+            item.addEventListener('click', function() {
+                alert('You clicked on ' + this.textContent);
+            })
+        });
+    </script>
+</body>
+</html>
