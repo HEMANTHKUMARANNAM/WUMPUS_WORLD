@@ -3,46 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="wumpus.js"></script>
     <link rel="stylesheet" href="styles.css">
     <title>WUMPUS GAME</title>
 </head>
 <body>
     <div id = "contact">website under development. Who want to contribute or feedback  contact 99220041106@klu.ac.in</div>
     <h1 class="game_title" >WUMPUS GAME</h1>
-    <div class="grid-container">
-        <div class="grid-item">Agent</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
+
+    <div>
+        <button id="start" onclick= start() >Start</button>
+    </div>
+
+    <div class="grid-container"  id="grid-container" >
+    <div class="grid-item" onclick="handleItemClick(1)" id="1" >Agent👨</div>
+    <div class="grid-item" onclick="handleItemClick(2)" id="2" ></div>
+    <div class="grid-item" onclick="handleItemClick(3)" id="3" ></div>
+    <div class="grid-item" onclick="handleItemClick(4)" id="4" ></div>
+    <div class="grid-item" onclick="handleItemClick(5)" id="5" ></div>
+    <div class="grid-item" onclick="handleItemClick(6)" id="6" >🕳️</div>
+    <div class="grid-item" onclick="handleItemClick(7)" id="7" ></div>
+    <div class="grid-item" onclick="handleItemClick(8)" id="8" ></div>
+    <div class="grid-item" onclick="handleItemClick(9)" id="9" >🕳️</div>
+    <div class="grid-item" onclick="handleItemClick(10)" id="10" ></div>
+    <div class="grid-item" onclick="handleItemClick(11)" id="11" ></div>
+    <div class="grid-item" onclick="handleItemClick(12)" id="12" ></div>
+    <div class="grid-item" onclick="handleItemClick(13)" id="13" >👻</div>
+    <div class="grid-item" onclick="handleItemClick(14)" id="14" ></div>
+    <div class="grid-item" onclick="handleItemClick(15)" id="15" ></div>
+    <div class="grid-item" onclick="handleItemClick(16)" id="16" ></div>
     </div>
 
     <div class="movekeys">
-        <button class="but" id="move-up">Up</button>
-        <button class="but" id="move-down">Down</button>
-        <button class="but" id="move-left">Left</button>
-        <button class="but" id="move-right">Right</button>
+        <button class="but" id="moveup" onclick=up()  >Up</button>
+        <button class="but" id="movedown" onclick=down() >Down</button>
+        <button class="but" id="moveleft" onclick=left() >Left</button>
+        <button class="but" id="moveright" onclick=right() >Right</button>
     </div>
 
-    <script>
-        const gridItems = document.querySelectorAll('.grid-item');
-
-        gridItems.forEach(item => {
-            item.addEventListener('click', function() {
-                alert('You clicked on ' + this.textContent);
-            })
-        });
-    </script>
 </body>
 </html>
