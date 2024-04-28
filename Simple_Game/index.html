@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="wumpus.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>WUMPUS GAME</title>
+</head>
+<body>
+    <div id = "contact">website under development. Who want to contribute or feedback  contact 99220041106@klu.ac.in</div>
+    <h1 class="game_title" >WUMPUS GAME</h1>
+
+    <div>
+        <button id="start" onclick= start() >Start</button>
+    </div>
+
+    <div class="grid-container"  id="grid-container" >
+    <div class="grid-item" onclick="handleItemClick(1)" id="1" ></div>
+    <div class="grid-item" onclick="handleItemClick(2)" id="2" ></div>
+    <div class="grid-item" onclick="handleItemClick(3)" id="3" ></div>
+    <div class="grid-item" onclick="handleItemClick(4)" id="4" ></div>
+    <div class="grid-item" onclick="handleItemClick(5)" id="5" ></div>
+    <div class="grid-item" onclick="handleItemClick(6)" id="6" ></div>
+    <div class="grid-item" onclick="handleItemClick(7)" id="7" ></div>
+    <div class="grid-item" onclick="handleItemClick(8)" id="8" ></div>
+    <div class="grid-item" onclick="handleItemClick(9)" id="9" ></div>
+    <div class="grid-item" onclick="handleItemClick(10)" id="10" ></div>
+    <div class="grid-item" onclick="handleItemClick(11)" id="11" ></div>
+    <div class="grid-item" onclick="handleItemClick(12)" id="12" ></div>
+    <div class="grid-item" onclick="handleItemClick(13)" id="13" ></div>
+    <div class="grid-item" onclick="handleItemClick(14)" id="14" ></div>
+    <div class="grid-item" onclick="handleItemClick(15)" id="15" ></div>
+    <div class="grid-item" onclick="handleItemClick(16)" id="16" ></div>
+    <div class="grid-item" onclick="handleItemClick(17)" id="17" ></div>
+    <div class="grid-item" onclick="handleItemClick(18)" id="18" ></div>
+    <div class="grid-item" onclick="handleItemClick(19)" id="19" ></div>
+    <div class="grid-item" onclick="handleItemClick(20)" id="20" ></div>
+    <div class="grid-item" onclick="handleItemClick(21)" id="21" ></div>
+    <div class="grid-item" onclick="handleItemClick(22)" id="22" ></div>
+    <div class="grid-item" onclick="handleItemClick(23)" id="23" ></div>
+    <div class="grid-item" onclick="handleItemClick(24)" id="24" ></div>
+    <div class="grid-item" onclick="handleItemClick(25)" id="25" ></div>
+    </div>
+
+    <div>
+        <label for="myTextBox"  id="myTextBoxl" class="sensor" >Sensor data 📩</label>
+        <input type="text" id="myTextBox"  class="sensor" name="myTextBox">
+    </div>
+
+    <audio id="bgMusic" autoplay loop>
+        <source src="bg.mp4" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <div class="movekeys">
+        <button class="but" id="moveup" onclick=up()  >Up</button>
+        <button class="but" id="movedown" onclick=down() >Down</button>
+        <button class="but" id="moveleft" onclick=left() >Left</button>
+        <button class="but" id="moveright" onclick=right() >Right</button>
+    </div>
+
+</body>
+</html>

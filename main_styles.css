@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    margin-top: 50px;
+    background-color: #d8e8dc;
+    background-image: url("Designer.png");
+    background-size:cover ;
+}
+
+a {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 20px; /* Adjust padding for medium size */
+    font-size: 20px; /* Adjust font size for medium size */
+    color: rgb(126, 143, 241);
+    text-decoration: none;
+    border: 2px solid ;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: #eef1ee; /* Add a background color if desired */
+    opacity: .8 ;
+
+}
+
+
+
+a:hover {
+    background-color: rgb(0, 51, 128);
+    color: white;
+}
+
+#title {
+    color: black;
+    font-weight: bolder;
+    font-size: 30px;
+    display: block;
+    margin-bottom: 50px;
+}
+

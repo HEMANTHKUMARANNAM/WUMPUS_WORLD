@@ -16,7 +16,7 @@ class WumpusWorld {
     constructor(size) 
     {
         this.size = size;
-        this.agentPosition = { x: 0, y: 0 };
+        this.agentPosition = { x: 4, y:0  };
         this.wumpusPosition = this.generateRandomPosition();
         do {
             this.goldPosition = this.generateRandomPosition();
@@ -104,18 +104,18 @@ class WumpusWorld {
         input.value = ""; // Clear the text
 
         if (this.distance(this.agentPosition, this.wumpusPosition) === 1) {
-            console.log("Stench found!");
+            console.log("Stench found!,");
             input.value += "Stench found!"; // Append text
         }
 
         for (const pit of this.pitPositions) {
             if (this.distance(this.agentPosition, pit) === 1) {
-                input.value += ", Breeze found!"; // Append text
+                input.value += "Breeze found!,"; // Append text
             }
         }
 
         if (this.distance(this.agentPosition, this.goldPosition) === 1) {
-            console.log("Stench found!");
+            console.log("Stench found!,");
             input.value += "Glitter!"; // Append text
         }
 
@@ -234,7 +234,9 @@ async function end()
     div.classList.toggle("disabled");
     var div = document.getElementById("myTextBox");
     div.classList.toggle("enable");
-    game = new  WumpusWorld(4)
+    var div = document.getElementById("myTextBox1");
+    div.classList.toggle("enable");
+    game = new  WumpusWorld(5)
 }
 
 
@@ -248,6 +250,8 @@ function start()
     var div = document.getElementById("start");
     div.classList.toggle("disabled");
     var div = document.getElementById("myTextBox");
+    div.classList.toggle("enable");
+    var div = document.getElementById("myTextBox1");
     div.classList.toggle("enable");
 }
 
