@@ -1,6 +1,6 @@
 .grid-container {
     display: grid;
-    grid-template-columns: repeat( 4, minmax(100px, 1fr));
+    grid-template-columns: repeat( 5, minmax(100px, 1fr));
     /* grid-gap: 10px; */
     padding: 50px;
     height: auto; 
@@ -59,3 +59,30 @@ body {
     height: 50px;
     width: 80px;
 }
+
+#start.disabled
+{
+    display: none;
+}
+
+#myTextBox
+{
+    display: none;
+}
+
+#myTextBox.enable
+{
+    display: inline ;
+}
+
+
+#myTextBoxl
+{
+    display: none;
+}
+
+#myTextBoxl.enable
+{
+    display: inline ;
+}
+

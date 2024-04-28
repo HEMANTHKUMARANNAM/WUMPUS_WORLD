@@ -1,14 +1,33 @@
 
 class WumpusWorld {
+    // constructor(size) 
+    // {
+    //     this.size = size;
+    //     this.agentPosition = { x: 0, y: 0 };
+    //     this.wumpusPosition = this.generateRandomPosition();
+    //     this.goldPosition = this.generateRandomPosition();
+    //     this.pitPositions = [];
+    //     for (let i = 0; i < Math.floor(size / 2); i++) {
+    //         this.pitPositions.push(this.generateRandomPosition());
+    //     }
+    //     this.safe = [];
+    // }
+
     constructor(size) 
     {
         this.size = size;
         this.agentPosition = { x: 0, y: 0 };
         this.wumpusPosition = this.generateRandomPosition();
-        this.goldPosition = this.generateRandomPosition();
+        do {
+            this.goldPosition = this.generateRandomPosition();
+        } while (this.goldPosition.x === this.wumpusPosition.x && this.goldPosition.y === this.wumpusPosition.y);
         this.pitPositions = [];
         for (let i = 0; i < Math.floor(size / 2); i++) {
-            this.pitPositions.push(this.generateRandomPosition());
+            let pitPos;
+            do {
+                pitPos = this.generateRandomPosition();
+            } while ((pitPos.x === this.wumpusPosition.x && pitPos.y === this.wumpusPosition.y) || (pitPos.x === this.goldPosition.x && pitPos.y === this.goldPosition.y) || this.pitPositions.some(p => p.x === pitPos.x && p.y === pitPos.y));
+            this.pitPositions.push(pitPos);
         }
         this.safe = [];
     }
@@ -48,23 +67,30 @@ class WumpusWorld {
                 {
                     div.textContent = "🧑🪙";
                 } 
+                else if( achive === "w" && (i === this.agentPosition.x && j === this.agentPosition.y)  )
+                {
+                    div.textContent = "🧑👻";
+                } 
+                else if( achive === "g" && (i === this.agentPosition.x && j === this.agentPosition.y)  )
+                {
+                    div.textContent = "🧑🕳️";
+                } 
                 else if ( index !=-1 && !(i === this.agentPosition.x && j === this.agentPosition.y)) {
                     div.textContent = "🚗";
                     console.log('TRUE');
                 } 
                 else if (i === this.agentPosition.x && j === this.agentPosition.y) {
-                    // process.stdout.write("A ");
                     div.textContent = "🧑\nAgent";
 
                 } else if (i === this.wumpusPosition.x && j === this.wumpusPosition.y) {
                     // Hide Wumpus for the player
-                    div.textContent = "👻\nWumpus";
+                    // div.textContent = "👻\nWumpus";
                 } else if (i === this.goldPosition.x && j === this.goldPosition.y) {
                     // Hide Gold for the player
-                    div.textContent = "🪙\nGold";
+                    // div.textContent = "🪙\nGold";
                 } else if (this.pitPositions.find((pos) => pos.x === i && pos.y === j)) {
                     // Hide Pits for the player
-                    div.textContent = "🕳️\nPit";
+                    // div.textContent = "🕳️\nPit";
                 }
                 else {
                     div.textContent = ".";
@@ -74,15 +100,27 @@ class WumpusWorld {
             console.log();
         }
 
+        var input = document.getElementById("myTextBox");
+        input.value = ""; // Clear the text
+
         if (this.distance(this.agentPosition, this.wumpusPosition) === 1) {
             console.log("Stench found!");
+            input.value += "Stench found!"; // Append text
         }
 
         for (const pit of this.pitPositions) {
             if (this.distance(this.agentPosition, pit) === 1) {
-                console.log("Breeze found!");
+                input.value += ", Breeze found!"; // Append text
             }
         }
+
+        if (this.distance(this.agentPosition, this.goldPosition) === 1) {
+            console.log("Stench found!");
+            input.value += "Glitter!"; // Append text
+        }
+
+
+
     }
 
     moveAgent(direction) {
@@ -118,16 +156,25 @@ class WumpusWorld {
         console.log(this.agentPosition , this.goldPosition)
 
         if (x === this.wumpusPosition.x && y === this.wumpusPosition.y) {
-            console.log("Game Over! Wumpus got you!");
+            this.printWorld("w");
+            await sleep(500); // Sleep for 2000 milliseconds (2 seconds)
+            alert("Game Over! Wumpus got you!");
+            end();
+            await sleep(3000); // Sleep for 2000 milliseconds (
             return false;
         } else if (x === this.goldPosition.x && y === this.goldPosition.y) {
             this.printWorld("g");
             await sleep(500); // Sleep for 2000 milliseconds (2 seconds)
             alert("Congratulations! You found the gold!");
-            location.reload(true);
+            end();
+            await sleep(3000); // Sleep for 2000 milliseconds (
             return false;
         } else if (this.pitPositions.find((pos) => pos.x === x && pos.y === y)) {
-            console.log("Game Over! You fell into a pit!");
+            this.printWorld("p");
+            await sleep(500); // Sleep for 2000 milliseconds (2 seconds)
+            alert("Game Over! You fell into a pit!");
+            end();
+            await sleep(3000); // Sleep for 2000 milliseconds (
             return false;
         }
     }
@@ -135,7 +182,7 @@ class WumpusWorld {
 }
 
 
-game = new  WumpusWorld(4)
+game = new  WumpusWorld(5)
 
 
 
@@ -177,12 +224,31 @@ function handleItemClick(index) {
 }
 
 
+async function end() 
+{
+    var div = document.getElementById("grid-container");
+    div.classList.toggle("enable");
+    var bgMusic = document.getElementById("bgMusic");
+    bgMusic.pause();
+    var div = document.getElementById("start");
+    div.classList.toggle("disabled");
+    var div = document.getElementById("myTextBox");
+    div.classList.toggle("enable");
+    game = new  WumpusWorld(4)
+}
+
 
 function start()
 {
     var div = document.getElementById("grid-container");
     div.classList.toggle("enable");
     game.printWorld();
+    var bgMusic = document.getElementById("bgMusic");
+    bgMusic.play();
+    var div = document.getElementById("start");
+    div.classList.toggle("disabled");
+    var div = document.getElementById("myTextBox");
+    div.classList.toggle("enable");
 }
 
 
