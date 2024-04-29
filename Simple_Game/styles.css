@@ -40,6 +40,23 @@
     color: blueviolet;
 }
 
+
+#butdiv
+{
+    display: none;
+}
+
+
+#butdiv.disable
+{
+    display: inline;
+}
+
+
+
+
+
+
 #contact
 {
     color: red;
@@ -66,23 +83,14 @@ body {
 }
 
 
-#myTextBoxl
+#sensor
 {
     display: none;
 }
 
-#myTextBoxl.enable
+#sensor.enable
 {
     display: inline;
 }
 
-#myTextBox
-{
-    display: none;
-}
-
-#myTextBox.enable
-{
-    display: inline;
-}
 

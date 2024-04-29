@@ -8,7 +8,6 @@
     <title>WUMPUS GAME</title>
 </head>
 <body>
-    <div id = "contact">website under development. Who want to contribute or feedback  contact 99220041106@klu.ac.in</div>
     <h1 class="game_title" >WUMPUS GAME</h1>
 
     <div>
@@ -43,9 +42,9 @@
     <div class="grid-item" onclick="handleItemClick(25)" id="25" ></div>
     </div>
 
-    <div>
-        <label for="myTextBox"  id="myTextBoxl" class="sensor" >Sensor data 📩</label>
-        <input type="text" id="myTextBox"  class="sensor" name="myTextBox">
+    <div id="sensor" >
+        <label for="myTextBox"    >Sensor data 📩</label>
+        <input type="text" id="myTextBox"   name="myTextBox">
     </div>
 
     <audio id="bgMusic" autoplay loop>
@@ -54,7 +53,7 @@
     </audio>
 
 
-    <div class="movekeys">
+    <div class="movekeys" id="butdiv">
         <button class="but" id="moveup" onclick=up()  >Up</button>
         <button class="but" id="movedown" onclick=down() >Down</button>
         <button class="but" id="moveleft" onclick=left() >Left</button>

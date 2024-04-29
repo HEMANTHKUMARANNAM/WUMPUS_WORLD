@@ -71,7 +71,7 @@ class WumpusWorld {
                 {
                     div.textContent = "🧑👻";
                 } 
-                else if( achive === "g" && (i === this.agentPosition.x && j === this.agentPosition.y)  )
+                else if( achive === "p" && (i === this.agentPosition.x && j === this.agentPosition.y)  )
                 {
                     div.textContent = "🧑🕳️";
                 } 
@@ -157,24 +157,30 @@ class WumpusWorld {
 
         if (x === this.wumpusPosition.x && y === this.wumpusPosition.y) {
             this.printWorld("w");
-            await sleep(500); // Sleep for 2000 milliseconds (2 seconds)
+            var div = document.getElementById("butdiv");
+            div.classList.toggle("disable");
+            await sleep(2000); // Sleep for 2000 milliseconds (2 seconds)
             alert("Game Over! Wumpus got you!");
             end();
-            await sleep(3000); // Sleep for 2000 milliseconds (
+            await sleep(500); // Sleep for 2000 milliseconds (
             return false;
         } else if (x === this.goldPosition.x && y === this.goldPosition.y) {
             this.printWorld("g");
-            await sleep(500); // Sleep for 2000 milliseconds (2 seconds)
+            var div = document.getElementById("butdiv");
+            div.classList.toggle("disable");
+            await sleep(2000); // Sleep for 2000 milliseconds (2 seconds)
             alert("Congratulations! You found the gold!");
             end();
-            await sleep(3000); // Sleep for 2000 milliseconds (
+            await sleep(500); // Sleep for 2000 milliseconds (
             return false;
         } else if (this.pitPositions.find((pos) => pos.x === x && pos.y === y)) {
             this.printWorld("p");
-            await sleep(500); // Sleep for 2000 milliseconds (2 seconds)
+            var div = document.getElementById("butdiv");
+            div.classList.toggle("disable");
+            await sleep(2000); // Sleep for 2000 milliseconds (2 seconds)
             alert("Game Over! You fell into a pit!");
             end();
-            await sleep(3000); // Sleep for 2000 milliseconds (
+            await sleep(500); // Sleep for 2000 milliseconds (
             return false;
         }
     }
@@ -232,10 +238,10 @@ async function end()
     bgMusic.pause();
     var div = document.getElementById("start");
     div.classList.toggle("disabled");
-    var div = document.getElementById("myTextBox");
+    var div = document.getElementById("sensor");
     div.classList.toggle("enable");
-    var div = document.getElementById("myTextBox1");
-    div.classList.toggle("enable");
+    var div = document.getElementById("butdiv");
+    div.classList.toggle("disable");
     game = new  WumpusWorld(5)
 }
 
@@ -249,10 +255,10 @@ function start()
     bgMusic.play();
     var div = document.getElementById("start");
     div.classList.toggle("disabled");
-    var div = document.getElementById("myTextBox");
+    var div = document.getElementById("sensor");
     div.classList.toggle("enable");
-    var div = document.getElementById("myTextBox1");
-    div.classList.toggle("enable");
+    var div = document.getElementById("butdiv");
+    div.classList.toggle("disable");
 }
 
 
